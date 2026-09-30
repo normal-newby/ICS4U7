@@ -10,29 +10,54 @@ public class Sorting {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter array length: ");
-        n = input.nextInt();
+        boolean useRandom = false;
+        System.out.print("Use 1000 random variables? (Y/N): ");
+        String yn = input.next();
+        if (yn.equalsIgnoreCase("y")) useRandom = true;
 
-        System.out.print("Enter array, separated by spaces: ");
-        array = new int[n];
-        for (int i = 0; i < n; i++) array[i] = input.nextInt();
+        if (useRandom){
+            n = 1000;
+            array = new int[n];
+            for (int i = 0; i < n; i++) array[i] = (int) (Math.random() * 500);
+        } else {
+
+            System.out.print("Enter array length: ");
+            n = input.nextInt();
+
+            System.out.print("Enter array, separated by spaces: ");
+            array = new int[n];
+            for (int i = 0; i < n; i++) array[i] = input.nextInt();
+        }
+
+        long start, end;
 
         int[] bubbleArray = array.clone();
+        start = System.nanoTime();
         bubbleSort(bubbleArray);
+        end = System.nanoTime();
+        System.out.println("Bubble sort time (microseconds): " + (end-start)/1000);
         printArray(bubbleArray);
+        System.out.println();
 
         int[] selectionArray = array.clone();
+        start = System.nanoTime();
         selectionSort(selectionArray);
+        end = System.nanoTime();
+        System.out.println("Selection sort time (microseconds): " + (end-start)/1000);
         printArray(selectionArray);
+        System.out.println();
 
         int[] insertionArray = array.clone();
+        start = System.nanoTime();
         insertionSort(insertionArray);
+        end = System.nanoTime();
+        System.out.println("Insertion sort time (microseconds): " + (end-start)/1000);
         printArray(insertionArray);
     }
 
     static void printArray(int[] a){
         System.out.print("Here is your sorted array: ");
-        for (int i : a) System.out.print(i + " ");
+        for (int i = 0; i < Math.max(n, 100); i++) System.out.print(a[i] + " ");
         System.out.println();
     }
 
