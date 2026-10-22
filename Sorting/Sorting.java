@@ -6,17 +6,18 @@ public class Sorting {
 
     static int n;
     static int[] array;
+    static final int numberRandom = 5000;
 
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
 
         boolean useRandom = false;
-        System.out.print("Use 1000 random variables? (Y/N): ");
+        System.out.print("Use " + numberRandom + " random variables? (Y/N): ");
         String yn = input.next();
         if (yn.equalsIgnoreCase("y")) useRandom = true;
 
         if (useRandom){
-            n = 1000;
+            n = numberRandom;
             array = new int[n];
             for (int i = 0; i < n; i++) array[i] = (int) (Math.random() * 500);
         } else {
