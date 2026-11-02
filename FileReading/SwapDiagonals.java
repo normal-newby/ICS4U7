@@ -8,6 +8,7 @@ import java.util.*;
 
 public class SwapDiagonals {
     public static final String file = "D:\\ICS4U7\\FileReading\\file.txt";
+    public static final String newFile = "D:\\ICS4U7\\FileReading\\updatedFile.txt";
     public static void main(String[] args) {
         BufferedReader br;
         int n = 0;
@@ -71,7 +72,7 @@ public class SwapDiagonals {
 
     public static void writeToFile(int n, int[][] m){
         try {
-            FileWriter fw = new FileWriter(file);
+            FileWriter fw = new FileWriter(newFile);
             StringBuilder data = new StringBuilder();
             data.append(n);
             for (int i = 0; i < n; i++){
