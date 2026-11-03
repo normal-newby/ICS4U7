@@ -27,8 +27,8 @@ public class Jokes {
 
         int sz = jokes.size();
         for (int i = 0; i < sz; i++){
-            int first = (int) Math.random() * sz;
-            int second = (int) Math.random() * sz;
+            int first = (int) (Math.random() * sz);
+            int second = (int) (Math.random() * sz);
             String temp = jokes.get(first);
             jokes.set(first, jokes.get(second));
             jokes.set(second, temp);

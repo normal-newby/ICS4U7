@@ -47,7 +47,7 @@ public class SwapDiagonals {
 
     public static void forward(int n, int[][] m) {
         for (int i = 0; i < n - 1; i++) {
-            for (int j = i; j < n - i - 1; j++) {
+            for (int j = 0; j < n - i - 1; j++) {
                 int ni = n - j - 1, nj = n - i - 1;
                 int temp = m[ni][nj];
                 m[ni][nj] = m[i][j];
